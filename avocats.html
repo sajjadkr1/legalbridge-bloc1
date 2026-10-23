@@ -1,69 +1,354 @@
 <!doctype html>
+
 <html lang="fr">
 
 <head>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Trouvez un avocat | LegalBridge</title>
-    <meta name="description" content="LegalBridge : trouver un avocat selon sa spécialité et sa ville.">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/avocats.css">
-    <link rel="stylesheet" href="css/carte.css">
-    <link rel="stylesheet" href="css/ajustements.css">
-    <script defer src="js/donnees.js"></script>
-    <script defer src="js/commun.js"></script>
-    <script defer src="js/avocats.js"></script>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        Trouvez un avocat | LegalBridge
+    </title>
+
+    <meta
+        name="description"
+        content="LegalBridge : trouver un avocat selon sa spécialité et sa ville."
+    >
+
+    <link
+        rel="icon"
+        href="favicon.ico"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/navbar.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/avocats.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/carte.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/ajustements.css"
+    >
+
 </head>
 
-<body><a class="skip-link" href="#contenu">Aller au contenu</a>
-    <nav class="navbar" aria-label="Navigation principale"><a class="logo" href="index.html"
-            aria-label="Retour à l'accueil"><img src="img/logo.png" alt="LegalBridge" width="60" height="60"></a>
+
+<body>
+
+
+    <a
+        class="skip-link"
+        href="#contenu"
+    >
+        Aller au contenu
+    </a>
+
+
+    <!-- ========================= -->
+    <!-- NAVIGATION -->
+    <!-- ========================= -->
+
+    <nav
+        class="navbar"
+        aria-label="Navigation principale"
+    >
+
+        <a
+            class="logo"
+            href="index.html"
+            aria-label="Retour à l'accueil"
+        >
+
+            <img
+                src="img/logo.png"
+                alt="LegalBridge"
+                width="60"
+                height="60"
+            >
+
+        </a>
+
+
         <ul>
-            <li><a href="login.html" id="login-link">Connexion</a></li>
-            <li hidden id="appointments-item"><button type="button" id="appointments-toggle" aria-expanded="false"
-                    aria-controls="appointments-popup">Mes rendez-vous</button></li>
-            <li hidden id="logout-item"><button type="button" id="logout">Se déconnecter</button></li>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="avocats.html">Trouvez un avocat</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">À propos</a></li>
+
+            <li>
+                <a
+                    href="login.html"
+                    id="login-link"
+                >
+                    Connexion
+                </a>
+            </li>
+
+
+            <li
+                id="appointments-item"
+                hidden
+            >
+
+                <button
+                    type="button"
+                    id="appointments-toggle"
+                    aria-expanded="false"
+                    aria-controls="appointments-popup"
+                >
+                    Mes rendez-vous
+                </button>
+
+            </li>
+
+
+            <li
+                id="logout-item"
+                hidden
+            >
+
+                <button
+                    type="button"
+                    id="logout"
+                >
+                    Se déconnecter
+                </button>
+
+            </li>
+
+
+            <li>
+                <a href="index.html">
+                    Accueil
+                </a>
+            </li>
+
+
+            <li>
+                <a
+                    href="avocats.html"
+                    aria-current="page"
+                >
+                    Trouvez un avocat
+                </a>
+            </li>
+
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+
+            <li>
+                <a href="about.html">
+                    À propos
+                </a>
+            </li>
+
         </ul>
-        <section class="rendez-vous-popup" id="appointments-popup" aria-label="Mes rendez-vous de démonstration" hidden>
-            <h2>Mes rendez-vous</h2><button class="close-popup" type="button" id="appointments-close">Fermer</button>
+
+
+        <!-- ========================= -->
+        <!-- RENDEZ-VOUS -->
+        <!-- ========================= -->
+
+        <section
+            class="rendez-vous-popup"
+            id="appointments-popup"
+            aria-label="Mes rendez-vous"
+            hidden
+        >
+
+            <h2>
+                Mes rendez-vous
+            </h2>
+
+
+            <button
+                class="close-popup"
+                type="button"
+                id="appointments-close"
+            >
+                Fermer
+            </button>
+
+
             <div id="appointments-list"></div>
+
         </section>
+
     </nav>
-    <main id="contenu">
+
+
+    <!-- ========================= -->
+    <!-- CONTENU PRINCIPAL -->
+    <!-- ========================= -->
+
+    <main
+        id="contenu"
+        tabindex="-1"
+    >
+
         <section class="avocat-list">
-            <h1>Trouvez votre avocat</h1>
+
+
+            <h1>
+                Trouvez votre avocat
+            </h1>
+
+
             <div class="page-tools">
-                <form action="avocats.html" method="get">
-                    <div class="field"><label for="specialite">Spécialité</label><select id="specialite"
-                            name="specialite">
-                            <option value="">Toutes les spécialités</option value="immigration">Droit des étrangers
+
+
+                <form
+                    action="avocats.html"
+                    method="get"
+                >
+
+
+                    <!-- Spécialité -->
+
+                    <div class="field">
+
+                        <label for="specialite">
+                            Spécialité
+                        </label>
+
+
+                        <select
+                            id="specialite"
+                            name="specialite"
+                        >
+
+                            <option value="">
+                                Toutes les spécialités
                             </option>
-                            <option value="demande d'asile">Demande d'asile</option>
-                            <option value="logement">Logement</option>
-                            <option value="travail">Droit du travail</option>
-                            <option value="droit pénal">Droit pénal</option>
-                        </select></div>
-                    <div class="field"><label for="ville">Ville</label><input id="ville" name="ville"
-                            placeholder="Ex : Paris"></div><button type="submit">Rechercher</button><a
-                        href="avocats.html">Réinitialiser</a>
+
+
+                            <option value="immigration">
+                                Droit des étrangers
+                            </option>
+
+
+                            <option value="demande d'asile">
+                                Demande d'asile
+                            </option>
+
+
+                            <option value="logement">
+                                Logement
+                            </option>
+
+
+                            <option value="travail">
+                                Droit du travail
+                            </option>
+
+
+                            <option value="droit pénal">
+                                Droit pénal
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Ville -->
+
+                    <div class="field">
+
+                        <label for="ville">
+                            Ville
+                        </label>
+
+
+                        <input
+                            id="ville"
+                            name="ville"
+                            type="text"
+                            placeholder="Ex : Paris"
+                        >
+
+                    </div>
+
+
+                    <!-- Recherche -->
+
+                    <button type="submit">
+                        Rechercher
+                    </button>
+
+
+                    <a href="avocats.html">
+                        Réinitialiser
+                    </a>
+
                 </form>
-                <p id="result-count" role="status"></p>
+
+
+                <p
+                    id="result-count"
+                    role="status"
+                ></p>
+
             </div>
-            <div class="cards-container" id="resultats"></div>
-            <p class="empty-message" id="empty" hidden>Aucun avocat ne correspond à votre recherche.</p>
+
+
+            <!-- Résultats -->
+
+            <div
+                class="cards-container"
+                id="resultats"
+            ></div>
+
+
+            <p
+                class="empty-message"
+                id="empty"
+                hidden
+            >
+                Aucun avocat ne correspond à votre recherche.
+            </p>
+
+
         </section>
+
     </main>
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
     <footer class="footer">
 
         <p class="footer-copyright">
-            &copy; 2026 LegalBridge. Tous droits réservés.
+            &copy; 2026 LegalBridge.
+            Tous droits réservés.
         </p>
 
 
@@ -73,6 +358,7 @@
                 Liens utiles
             </p>
 
+
             <ul>
 
                 <li>
@@ -80,6 +366,7 @@
                         Contactez-nous
                     </a>
                 </li>
+
 
                 <li>
                     <a href="about.html">
@@ -92,6 +379,17 @@
         </div>
 
     </footer>
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script src="js/donnees.js"></script>
+    <script src="js/commun.js"></script>
+    <script src="js/avocats.js"></script>
+
+
 </body>
 
 </html>

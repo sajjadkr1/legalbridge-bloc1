@@ -13,10 +13,14 @@ Styles pour la page d'accueil
 
     background:
         linear-gradient(
-            rgba(0, 0, 0, 0.55),
-            rgba(0, 0, 0, 0.55)
+            rgba(0, 0, 0, 0.58),
+            rgba(0, 0, 0, 0.58)
         ),
-        linear-gradient(135deg, #0d2b45, #413c3c);
+        linear-gradient(
+            135deg,
+            #0d2b45,
+            #413c3c
+        );
 
     background-size: cover;
     background-position: center;
@@ -26,34 +30,58 @@ Styles pour la page d'accueil
     align-items: center;
 
     text-align: center;
-    color: white;
 
-    padding: 40px;
+    color: #ffffff;
+
+    padding: 45px 25px 90px;
 
     position: relative;
+
+    box-sizing: border-box;
 }
 
+
+/* ========================= */
+/* CONTENU HERO */
+/* ========================= */
 
 .hero-content {
-    max-width: 700px;
+    width: 100%;
+    max-width: 760px;
 }
 
 
+/* ========================= */
+/* TITRE HERO */
+/* ========================= */
+
 .hero h1 {
-    font-size: 42px;
+    font-size: 44px;
     line-height: 1.2;
 
+    margin-top: 0;
     margin-bottom: 20px;
 
     font-weight: 700;
+
+    text-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.20);
 }
 
 
+/* ========================= */
+/* TEXTE HERO */
+/* ========================= */
+
 .hero p {
-    font-size: 19px;
+    max-width: 620px;
+
+    margin: 0 auto 30px;
+
+    font-size: 18px;
     line-height: 1.6;
 
-    margin-bottom: 25px;
+    color: #f1f1f1;
 }
 
 
@@ -62,20 +90,30 @@ Styles pour la page d'accueil
 /* ========================= */
 
 .hero-btn {
+    min-height: 50px;
+
     background-color: #b9975b;
-    color: white;
+
+    color: #ffffff;
 
     border: none;
 
-    padding: 15px 35px;
+    padding: 13px 28px;
 
-    border-radius: 8px;
+    border-radius: 7px;
 
-    font-size: 17px;
+    font-size: 16px;
+    font-weight: 600;
 
     cursor: pointer;
 
-    transition: 0.3s;
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.16);
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
 }
 
 
@@ -83,6 +121,9 @@ Styles pour la page d'accueil
     background-color: #8c6f3f;
 
     transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.20);
 }
 
 
@@ -102,6 +143,8 @@ Styles pour la page d'accueil
     position: relative;
 
     z-index: 10;
+
+    box-sizing: border-box;
 }
 
 
@@ -115,14 +158,14 @@ Styles pour la page d'accueil
 
     background-color: #ffffff;
 
-    padding: 35px 40px;
+    padding: 34px 38px;
 
-    border-radius: 16px;
+    border-radius: 14px;
 
-    border: 1px solid #e5e5e5;
+    border: 1px solid #e8e8e8;
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.16);
+        0 14px 36px rgba(0, 0, 0, 0.12);
 
     box-sizing: border-box;
 }
@@ -138,18 +181,23 @@ Styles pour la page d'accueil
     text-align: center;
 
     font-size: 27px;
+    font-weight: 700;
 
     margin-top: 0;
     margin-bottom: 30px;
 }
 
 
+/* ========================= */
+/* LIGNE DÉCORATIVE */
+/* ========================= */
+
 .search-box h2::after {
     content: "";
 
     display: block;
 
-    width: 55px;
+    width: 58px;
     height: 3px;
 
     background-color: #b9975b;
@@ -169,18 +217,22 @@ Styles pour la page d'accueil
 
     grid-template-columns: 1fr 1fr;
 
-    gap: 25px;
+    gap: 22px;
 
     margin-bottom: 25px;
 }
 
+
+/* ========================= */
+/* CHAMP */
+/* ========================= */
 
 .search-field {
     display: flex;
 
     flex-direction: column;
 
-    gap: 9px;
+    gap: 8px;
 }
 
 
@@ -189,11 +241,10 @@ Styles pour la page d'accueil
 /* ========================= */
 
 .search-field label {
-    font-size: 15px;
-
-    font-weight: 600;
-
     color: #333333;
+
+    font-size: 14px;
+    font-weight: 600;
 }
 
 
@@ -205,19 +256,19 @@ Styles pour la page d'accueil
 .search-field input {
     width: 100%;
 
-    height: 52px;
+    min-height: 50px;
 
-    padding: 0 15px;
+    padding: 0 14px;
 
-    border: 1px solid #c8c8c8;
+    border: 1px solid #c9c9c9;
 
-    border-radius: 8px;
+    border-radius: 7px;
 
-    background-color: #f8f8f8;
+    background-color: #ffffff;
 
     color: #222222;
 
-    font-size: 16px;
+    font-size: 15px;
 
     box-sizing: border-box;
 
@@ -234,20 +285,22 @@ Styles pour la page d'accueil
 
 
 .search-field input::placeholder {
-    color: #777777;
+    color: #999999;
 }
 
 
-/* Quand on clique dans un champ */
+/* ========================= */
+/* FOCUS DES CHAMPS */
+/* ========================= */
 
 .search-field select:focus,
 .search-field input:focus {
     border-color: #b9975b;
 
-    background-color: white;
+    background-color: #ffffff;
 
     box-shadow:
-        0 0 0 3px rgba(185, 151, 91, 0.18);
+        0 0 0 3px rgba(185, 151, 91, 0.16);
 
     outline: none;
 }
@@ -261,35 +314,42 @@ Styles pour la page d'accueil
     display: block;
 
     min-width: 260px;
+    min-height: 50px;
 
     margin: 0 auto;
 
     background-color: #0d2b45;
 
-    color: white;
+    color: #ffffff;
 
     border: none;
 
-    padding: 15px 30px;
+    padding: 13px 28px;
 
-    border-radius: 8px;
+    border-radius: 7px;
 
     font-size: 16px;
-
     font-weight: 600;
 
     cursor: pointer;
 
+    box-shadow:
+        0 5px 14px rgba(13, 43, 69, 0.14);
+
     transition:
-        background-color 0.3s,
-        transform 0.2s;
+        background-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
 }
 
 
 .search-btn:hover {
-    background-color: #b9975b;
+    background-color: #16476d;
 
-    transform: translateY(-2px);
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 18px rgba(13, 43, 69, 0.18);
 }
 
 
@@ -299,22 +359,14 @@ Styles pour la page d'accueil
 
 .hero-btn:focus-visible,
 .search-btn:focus-visible {
-    outline: 3px solid #0d2b45;
+    outline: 3px solid #b9975b;
 
     outline-offset: 3px;
 }
 
 
 .hero-btn:focus-visible {
-    outline-color: white;
-}
-
-
-.search-field input:focus-visible,
-.search-field select:focus-visible {
-    outline: 3px solid #b9975b;
-
-    outline-offset: 2px;
+    outline-color: #ffffff;
 }
 
 
@@ -327,7 +379,7 @@ Styles pour la page d'accueil
     .hero {
         min-height: 470px;
 
-        padding: 30px;
+        padding: 40px 25px 85px;
     }
 
 
@@ -337,12 +389,12 @@ Styles pour la page d'accueil
 
 
     .hero p {
-        font-size: 18px;
+        font-size: 17px;
     }
 
 
     .search-box {
-        width: 750px;
+        width: 760px;
 
         padding: 30px;
     }
@@ -364,12 +416,12 @@ Styles pour la page d'accueil
     .hero {
         min-height: 420px;
 
-        padding: 20px;
+        padding: 35px 18px 65px;
     }
 
 
     .hero h1 {
-        font-size: 30px;
+        font-size: 31px;
     }
 
 
@@ -379,14 +431,18 @@ Styles pour la page d'accueil
 
 
     .hero-btn {
-        padding: 13px 25px;
+        min-height: 46px;
 
-        font-size: 16px;
+        padding: 12px 24px;
+
+        font-size: 15px;
     }
 
 
     .search-container {
         margin-top: -35px;
+
+        margin-bottom: 50px;
 
         padding: 0 15px;
     }
@@ -396,6 +452,8 @@ Styles pour la page d'accueil
         width: 100%;
 
         padding: 25px 20px;
+
+        border-radius: 12px;
     }
 
 
@@ -405,8 +463,6 @@ Styles pour la page d'accueil
         margin-bottom: 25px;
     }
 
-
-    /* Les champs passent l'un sous l'autre */
 
     .search-fields {
         grid-template-columns: 1fr;
@@ -432,11 +488,13 @@ Styles pour la page d'accueil
 
     .hero {
         min-height: 380px;
+
+        padding: 30px 15px 55px;
     }
 
 
     .hero h1 {
-        font-size: 26px;
+        font-size: 27px;
     }
 
 
@@ -457,9 +515,16 @@ Styles pour la page d'accueil
 
     .search-field select,
     .search-field input {
-        height: 50px;
+        min-height: 48px;
 
         font-size: 16px;
+    }
+
+
+    .search-btn {
+        min-height: 48px;
+
+        font-size: 15px;
     }
 
 }

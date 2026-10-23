@@ -1,13 +1,19 @@
 /* ========================= */
-/* Liste des avocats */
+/* LISTE DES AVOCATS */
 /* ========================= */
 
 .avocat-list {
-    padding: 50px 30px;
+    padding: 50px 30px 60px;
+
+    background-color: #f7f7f7;
+
+    box-sizing: border-box;
 }
 
 
-/* Titre principal */
+/* ========================= */
+/* TITRE PRINCIPAL */
+/* ========================= */
 
 .avocat-list h1 {
     text-align: center;
@@ -15,20 +21,25 @@
     color: #0d2b45;
 
     font-size: 32px;
+    font-weight: 700;
 
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
+
+    line-height: 1.2;
 }
 
 
-/* Petite ligne décorative */
+/* ========================= */
+/* LIGNE DÉCORATIVE */
+/* ========================= */
 
 .avocat-list h1::after {
     content: "";
 
     display: block;
 
-    width: 60px;
+    width: 64px;
     height: 3px;
 
     background-color: #b9975b;
@@ -40,13 +51,203 @@
 
 
 /* ========================= */
-/* Conteneur des cartes */
+/* OUTILS DE RECHERCHE */
+/* ========================= */
+
+.page-tools {
+    width: 100%;
+    max-width: 950px;
+
+    margin: 0 auto 40px;
+
+    padding: 24px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.06);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================= */
+/* FORMULAIRE */
+/* ========================= */
+
+.page-tools form {
+    display: flex;
+    align-items: end;
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ========================= */
+/* CHAMPS */
+/* ========================= */
+
+.page-tools .field {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 220px;
+}
+
+
+/* ========================= */
+/* LABEL */
+/* ========================= */
+
+.page-tools label {
+    color: #333333;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+
+/* ========================= */
+/* INPUT ET SELECT */
+/* ========================= */
+
+.page-tools input,
+.page-tools select {
+    width: 100%;
+
+    min-height: 46px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #c9c9c9;
+    border-radius: 7px;
+
+    background-color: #ffffff;
+
+    color: #333333;
+
+    font-size: 15px;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.page-tools input:focus,
+.page-tools select:focus {
+    border-color: #b9975b;
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(185, 151, 91, 0.15);
+}
+
+
+/* ========================= */
+/* BOUTON RECHERCHER */
+/* ========================= */
+
+.page-tools button {
+    min-height: 46px;
+
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: #0d2b45;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+
+.page-tools button:hover {
+    background-color: #16476d;
+
+    transform: translateY(-1px);
+}
+
+
+/* ========================= */
+/* LIEN RÉINITIALISER */
+/* ========================= */
+
+.page-tools form > a {
+    min-height: 46px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 16px;
+
+    color: #0d2b45;
+
+    border: 1px solid #0d2b45;
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-sizing: border-box;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+
+
+.page-tools form > a:hover {
+    background-color: #0d2b45;
+
+    color: #ffffff;
+}
+
+
+/* ========================= */
+/* NOMBRE DE RÉSULTATS */
+/* ========================= */
+
+#result-count {
+    margin: 18px 0 0;
+
+    color: #666666;
+
+    font-size: 14px;
+}
+
+
+/* ========================= */
+/* CONTENEUR DES CARTES */
 /* ========================= */
 
 .cards-container {
     display: grid;
 
-    grid-template-columns: repeat(3, 300px);
+    grid-template-columns:
+        repeat(3, minmax(260px, 300px));
 
     justify-content: center;
 
@@ -61,33 +262,51 @@
 
 
 /* ========================= */
-/* Message aucun résultat */
+/* MESSAGE AUCUN RÉSULTAT */
 /* ========================= */
 
 .empty-message {
     text-align: center;
 
-    color: #555555;
+    color: #666666;
 
-    font-size: 18px;
+    font-size: 17px;
 
-    margin: 50px 0;
+    margin: 50px 0 20px;
 }
 
 
 /* ========================= */
-/* Tablette */
+/* NAVIGATION CLAVIER */
+/* ========================= */
+
+.page-tools button:focus-visible,
+.page-tools form > a:focus-visible {
+    outline: 3px solid #b9975b;
+
+    outline-offset: 3px;
+}
+
+
+/* ========================= */
+/* TABLETTE */
 /* ========================= */
 
 @media (max-width: 1024px) {
 
     .avocat-list {
-        padding: 40px 20px;
+        padding: 40px 20px 50px;
+    }
+
+
+    .page-tools {
+        max-width: 760px;
     }
 
 
     .cards-container {
-        grid-template-columns: repeat(2, 280px);
+        grid-template-columns:
+            repeat(2, minmax(260px, 280px));
 
         gap: 25px;
     }
@@ -101,20 +320,49 @@
 
 
 /* ========================= */
-/* Téléphone */
+/* TÉLÉPHONE */
 /* ========================= */
 
 @media (max-width: 768px) {
 
     .avocat-list {
-        padding: 35px 15px;
+        padding: 35px 15px 45px;
+    }
+
+
+    .page-tools {
+        padding: 20px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .page-tools form {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 14px;
+    }
+
+
+    .page-tools .field {
+        width: 100%;
+
+        flex: none;
+    }
+
+
+    .page-tools button,
+    .page-tools form > a {
+        width: 100%;
     }
 
 
     .cards-container {
         grid-template-columns: 1fr;
 
-        max-width: 400px;
+        max-width: 420px;
 
         gap: 25px;
     }
@@ -130,13 +378,18 @@
 
 
 /* ========================= */
-/* Petit téléphone */
+/* PETIT TÉLÉPHONE */
 /* ========================= */
 
 @media (max-width: 480px) {
 
     .avocat-list {
-        padding: 30px 15px;
+        padding: 30px 12px 40px;
+    }
+
+
+    .page-tools {
+        padding: 18px;
     }
 
 
@@ -146,7 +399,7 @@
 
 
     .empty-message {
-        font-size: 16px;
+        font-size: 15px;
     }
 
 }

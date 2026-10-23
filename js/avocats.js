@@ -2,6 +2,19 @@
 
 
 // =========================
+// LIBELLÉS DES SPÉCIALITÉS
+// =========================
+
+const specialites = {
+    immigration: 'Droit des étrangers',
+    travail: 'Droit du travail',
+    logement: 'Droit du logement',
+    "demande d'asile": 'Demande d’asile',
+    "droit pénal": 'Droit pénal'
+};
+
+
+// =========================
 // PARAMÈTRES DE RECHERCHE
 // =========================
 
@@ -75,11 +88,29 @@ const resultats =
 // NOMBRE DE RÉSULTATS
 // =========================
 
-document.getElementById(
-    'result-count'
-).textContent =
-    resultats.length +
-    ' avocat(s) trouvé(s)';
+const resultCount =
+    document.getElementById(
+        'result-count'
+    );
+
+
+if (resultats.length === 0) {
+
+    resultCount.textContent =
+        'Aucun avocat trouvé';
+
+} else if (resultats.length === 1) {
+
+    resultCount.textContent =
+        '1 avocat trouvé';
+
+} else {
+
+    resultCount.textContent =
+        resultats.length +
+        ' avocats trouvés';
+
+}
 
 
 // =========================
@@ -103,6 +134,13 @@ document.getElementById(
         .map(
             avocat => {
 
+                const specialiteAffichee =
+                    specialites[
+                        avocat.specialite
+                    ] ||
+                    avocat.specialite;
+
+
                 return `
                     <article class="card">
 
@@ -124,7 +162,9 @@ document.getElementById(
                                 Spécialité :
                             </strong>
 
-                            ${LB.texte(avocat.specialite)}
+                            ${LB.texte(
+                                specialiteAffichee
+                            )}
                         </p>
 
 

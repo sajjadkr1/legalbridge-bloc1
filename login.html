@@ -50,22 +50,6 @@
         href="css/ajustements.css"
     >
 
-
-    <script
-        defer
-        src="js/donnees.js"
-    ></script>
-
-    <script
-        defer
-        src="js/commun.js"
-    ></script>
-
-    <script
-        defer
-        src="js/login.js"
-    ></script>
-
 </head>
 
 
@@ -112,6 +96,7 @@
                 <a
                     href="login.html"
                     id="login-link"
+                    aria-current="page"
                 >
                     Connexion
                 </a>
@@ -223,7 +208,10 @@
     <!-- CONTENU -->
     <!-- ========================= -->
 
-    <main id="contenu">
+    <main
+        id="contenu"
+        tabindex="-1"
+    >
 
 
         <div class="login-container">
@@ -393,6 +381,15 @@
 
 
     </footer>
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script src="js/donnees.js"></script>
+    <script src="js/commun.js"></script>
+    <script src="js/login.js"></script>
 
 
 </body>

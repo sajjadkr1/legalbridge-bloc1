@@ -1,142 +1,343 @@
-/* Conteneur principal de la page Contact */
+/* ========================= */
+/* CONTENEUR PRINCIPAL */
+/* ========================= */
+
 .contact-container {
     min-height: 80vh;
-    padding: 60px 20px;
+
+    padding: 55px 20px 65px;
+
     background-color: #f7f7f7;
-}
 
-
-/* Titre et texte d'introduction */
-.contact-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.contact-header h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    color: #2c2c2c;
-}
-
-.contact-header p {
-    font-size: 17px;
-    color: #666;
-}
-
-
-/* Carte contenant le formulaire */
-.contact-card {
-    max-width: 650px;
-    margin: 0 auto;
-    padding: 35px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-
-/* Groupe contenant label + champ */
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #333;
-}
-
-
-/* Champs du formulaire */
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #bbb;
-    border-radius: 6px;
-    font-size: 16px;
-    font-family: inherit;
     box-sizing: border-box;
 }
 
+
+/* ========================= */
+/* EN-TÊTE */
+/* ========================= */
+
+.contact-header {
+    text-align: center;
+
+    margin-bottom: 36px;
+}
+
+
+/* ========================= */
+/* TITRE */
+/* ========================= */
+
+.contact-header h1 {
+    color: #0d2b45;
+
+    font-size: 34px;
+    font-weight: 700;
+
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+/* ========================= */
+/* LIGNE DÉCORATIVE */
+/* ========================= */
+
+.contact-header h1::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 3px;
+
+    background-color: #b9975b;
+
+    margin: 12px auto 0;
+
+    border-radius: 5px;
+}
+
+
+/* ========================= */
+/* TEXTE D'INTRODUCTION */
+/* ========================= */
+
+.contact-header p {
+    color: #666666;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    margin: 16px 0 0;
+}
+
+
+/* ========================= */
+/* CARTE DU FORMULAIRE */
+/* ========================= */
+
+.contact-card {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    padding: 36px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e7e7e7;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================= */
+/* GROUPE DE CHAMP */
+/* ========================= */
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================= */
+/* LABEL */
+/* ========================= */
+
+.form-group label {
+    color: #333333;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+/* ========================= */
+/* INPUT ET TEXTAREA */
+/* ========================= */
+
+.form-group input,
 .form-group textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #c9c9c9;
+
+    border-radius: 7px;
+
+    background-color: #ffffff;
+
+    color: #222222;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.form-group input {
+    min-height: 48px;
+}
+
+
+.form-group textarea {
+    min-height: 150px;
+
     resize: vertical;
 }
 
 
-/* Focus clavier */
+/* ========================= */
+/* PLACEHOLDER */
+/* ========================= */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999999;
+}
+
+
+/* ========================= */
+/* FOCUS */
+/* ========================= */
+
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: 3px solid #d4af37;
-    outline-offset: 2px;
-    border-color: #413c3c;
+    border-color: #b9975b;
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(185, 151, 91, 0.16);
 }
 
 
-/* Bouton d'envoi */
+/* ========================= */
+/* BOUTON D'ENVOI */
+/* ========================= */
+
 .contact-card button {
     width: 100%;
-    padding: 13px;
+
+    min-height: 50px;
+
+    padding: 13px 18px;
+
     border: none;
-    border-radius: 6px;
-    background-color: #413c3c;
-    color: white;
+
+    border-radius: 7px;
+
+    background-color: #0d2b45;
+
+    color: #ffffff;
+
     font-size: 16px;
     font-weight: 600;
+
     cursor: pointer;
+
+    box-shadow:
+        0 5px 14px rgba(13, 43, 69, 0.14);
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
 }
+
 
 .contact-card button:hover {
-    background-color: #2f2b2b;
+    background-color: #16476d;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 18px rgba(13, 43, 69, 0.18);
 }
 
+
+.contact-card button:active {
+    transform: translateY(0);
+}
+
+
+/* ========================= */
+/* NAVIGATION CLAVIER */
+/* ========================= */
+
 .contact-card button:focus-visible {
-    outline: 3px solid #d4af37;
+    outline: 3px solid #b9975b;
+
     outline-offset: 3px;
 }
 
 
-/* Tablette */
+/* ========================= */
+/* MESSAGE DE SUCCÈS */
+/* ========================= */
+
+.success-message {
+    margin-top: 18px;
+
+    padding: 12px 14px;
+
+    color: #2f6b3d;
+
+    background-color: #eef8f0;
+
+    border-left: 4px solid #4f8a5b;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+}
+
+
+/* ========================= */
+/* TABLETTE */
+/* ========================= */
+
 @media (max-width: 768px) {
 
     .contact-container {
-        padding: 40px 20px;
+        padding: 40px 20px 50px;
     }
+
 
     .contact-header h1 {
         font-size: 30px;
     }
 
+
     .contact-card {
-        padding: 25px;
+        padding: 28px;
     }
 
 }
 
 
-/* Téléphone */
+/* ========================= */
+/* TÉLÉPHONE */
+/* ========================= */
+
 @media (max-width: 480px) {
 
     .contact-container {
-        padding: 30px 15px;
+        padding: 30px 15px 40px;
     }
 
+
     .contact-header {
-        margin-bottom: 25px;
+        margin-bottom: 28px;
     }
+
 
     .contact-header h1 {
         font-size: 26px;
     }
 
+
     .contact-header p {
         font-size: 15px;
     }
 
+
     .contact-card {
-        padding: 20px;
+        padding: 22px 18px;
+
+        border-radius: 10px;
+    }
+
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px;
+    }
+
+
+    .contact-card button {
+        min-height: 48px;
     }
 
 }

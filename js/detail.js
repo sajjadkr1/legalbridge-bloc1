@@ -2,6 +2,19 @@
 
 
 // =========================
+// LIBELLÉS DES SPÉCIALITÉS
+// =========================
+
+const specialites = {
+    immigration: 'Droit des étrangers',
+    travail: 'Droit du travail',
+    logement: 'Droit du logement',
+    "demande d'asile": 'Demande d’asile',
+    "droit pénal": 'Droit pénal'
+};
+
+
+// =========================
 // RÉCUPÉRATION DE L'AVOCAT
 // =========================
 
@@ -38,15 +51,28 @@ if (!avocat) {
 
     detail.innerHTML = `
         <p class="loading-message">
+
             Avocat introuvable.
 
             <a href="avocats.html">
                 Retour à la liste
             </a>
+
         </p>
     `;
 
 } else {
+
+
+    // =========================
+    // SPÉCIALITÉ AFFICHÉE
+    // =========================
+
+    const specialiteAffichee =
+        specialites[
+            avocat.specialite
+        ] ||
+        avocat.specialite;
 
 
     // =========================
@@ -85,24 +111,31 @@ if (!avocat) {
 
 
                     <p>
+
                         <strong>
                             Spécialité :
                         </strong>
 
-                        ${LB.texte(avocat.specialite)}
+                        ${LB.texte(
+                            specialiteAffichee
+                        )}
+
                     </p>
 
 
                     <p>
+
                         <strong>
                             Ville :
                         </strong>
 
                         ${LB.texte(avocat.ville)}
+
                     </p>
 
 
                     <p>
+
                         <strong>
                             Langues :
                         </strong>
@@ -110,50 +143,67 @@ if (!avocat) {
                         ${LB.texte(
                             avocat.langues.join(', ')
                         )}
+
                     </p>
 
 
                     <p>
+
                         <strong>
                             Email :
                         </strong>
 
-                        ${avocat.email
-                            ? LB.texte(avocat.email)
-                            : 'Non disponible'}
+                        ${
+                            avocat.email
+                                ? LB.texte(avocat.email)
+                                : 'Non disponible'
+                        }
+
                     </p>
 
 
                     <p>
+
                         <strong>
                             Téléphone :
                         </strong>
 
-                        ${avocat.telephone
-                            ? LB.texte(avocat.telephone)
-                            : 'Non disponible'}
+                        ${
+                            avocat.telephone
+                                ? LB.texte(avocat.telephone)
+                                : 'Non disponible'
+                        }
+
                     </p>
 
 
                     <p>
+
                         <strong>
                             Adresse :
                         </strong>
 
-                        ${avocat.adresse
-                            ? LB.texte(avocat.adresse)
-                            : 'Non disponible'}
+                        ${
+                            avocat.adresse
+                                ? LB.texte(avocat.adresse)
+                                : 'Non disponible'
+                        }
+
                     </p>
 
 
                     <p>
+
                         <strong>
                             Description :
                         </strong>
 
-                        ${avocat.description
-                            ? LB.texte(avocat.description)
-                            : 'Non disponible'}
+                        ${
+                            avocat.description
+                                ? LB.texte(avocat.description)
+                                : 'Non disponible'
+                        }
+
                     </p>
 
 
@@ -185,6 +235,7 @@ if (!avocat) {
                             Date du rendez-vous
                         </label>
 
+
                         <input
                             id="date-rendez-vous"
                             type="date"
@@ -195,6 +246,7 @@ if (!avocat) {
                         <label for="heure-rendez-vous">
                             Heure du rendez-vous
                         </label>
+
 
                         <input
                             id="heure-rendez-vous"
@@ -207,6 +259,7 @@ if (!avocat) {
                             Motif du rendez-vous
                         </label>
 
+
                         <textarea
                             id="motif"
                             name="motif"
@@ -215,9 +268,7 @@ if (!avocat) {
                         ></textarea>
 
 
-                        <button
-                            type="submit"
-                        >
+                        <button type="submit">
                             Confirmer le rendez-vous
                         </button>
 
@@ -233,9 +284,11 @@ if (!avocat) {
 
 
                     <p>
+
                         <a href="avocats.html">
                             Retour à la liste
                         </a>
+
                     </p>
 
 
@@ -286,227 +339,226 @@ if (!avocat) {
     // OUVRIR LE FORMULAIRE
     // =========================
 
-    document
-        .getElementById(
+    const openAppointmentButton =
+        document.getElementById(
             'open-appointment'
-        )
-        .addEventListener(
-            'click',
-            () => {
+        );
 
 
-                // Vérifie si l'utilisateur
-                // est connecté
-                if (
-                    !LB.lire(
-                        'connexion',
-                        false
-                    )
-                ) {
-
-                    location.href =
-                        'login.html?avocat=' +
-                        avocat.id;
-
-                    return;
-
-                }
+    const appointmentForm =
+        document.getElementById(
+            'appointment-form'
+        );
 
 
-                const formulaire =
-                    document.getElementById(
-                        'appointment-form'
-                    );
+    openAppointmentButton.addEventListener(
+        'click',
+        () => {
 
 
-                formulaire.hidden =
-                    false;
+            // Vérifie si l'utilisateur
+            // est connecté
 
+            if (
+                !LB.lire(
+                    'connexion',
+                    false
+                )
+            ) {
 
-                document
-                    .getElementById(
-                        'open-appointment'
-                    )
-                    .setAttribute(
-                        'aria-expanded',
-                        'true'
-                    );
+                location.href =
+                    'login.html?avocat=' +
+                    avocat.id;
 
-
-                date.focus();
+                return;
 
             }
-        );
+
+
+            appointmentForm.hidden =
+                false;
+
+
+            openAppointmentButton.setAttribute(
+                'aria-expanded',
+                'true'
+            );
+
+
+            date.focus();
+
+        }
+    );
 
 
     // =========================
     // CONFIRMER LE RENDEZ-VOUS
     // =========================
 
-    document
-        .getElementById(
-            'appointment-form'
-        )
-        .addEventListener(
-            'submit',
-            event => {
+    appointmentForm.addEventListener(
+        'submit',
+        event => {
 
 
-                event.preventDefault();
+            event.preventDefault();
 
 
-                // Vérifie si l'utilisateur
-                // est toujours connecté
-                if (
-                    !LB.lire(
-                        'connexion',
-                        false
-                    )
-                ) {
+            // Vérifie si l'utilisateur
+            // est toujours connecté
 
-                    return;
+            if (
+                !LB.lire(
+                    'connexion',
+                    false
+                )
+            ) {
 
-                }
+                return;
 
-
-                const heure =
-                    document.getElementById(
-                        'heure-rendez-vous'
-                    ).value;
+            }
 
 
-                const motif =
-                    document.getElementById(
-                        'motif'
-                    )
+            const heure =
+                document.getElementById(
+                    'heure-rendez-vous'
+                ).value;
+
+
+            const motif =
+                document.getElementById(
+                    'motif'
+                )
                     .value
                     .trim();
 
 
-                const status =
-                    document.getElementById(
-                        'appointment-status'
-                    );
+            const status =
+                document.getElementById(
+                    'appointment-status'
+                );
 
 
-                status.hidden =
-                    false;
+            status.hidden =
+                false;
 
 
-                // Vérifie la date,
-                // l'heure et le motif
-                if (
-                    !motif ||
-                    new Date(
-                        date.value +
-                        'T' +
-                        heure
-                    ) <= new Date()
-                ) {
+            // Vérifie la date,
+            // l'heure et le motif
 
-                    status.textContent =
-                        'Choisissez une date et une heure futures, et renseignez un motif.';
+            if (
+                !date.value ||
+                !heure ||
+                !motif ||
+                new Date(
+                    date.value +
+                    'T' +
+                    heure
+                ) <= new Date()
+            ) {
 
-                    return;
-
-                }
-
-
-                // Récupère les rendez-vous
-                // déjà enregistrés
-                const rendezVous =
-                    LB.lire(
-                        'rendezvous',
-                        []
-                    );
-
-
-                // Vérifie si ce créneau
-                // existe déjà
-                const existeDeja =
-                    rendezVous.some(
-                        rendezVous =>
-
-                            rendezVous.id ===
-                                avocat.id &&
-
-                            rendezVous.date ===
-                                date.value &&
-
-                            rendezVous.heure ===
-                                heure
-                    );
-
-
-                if (existeDeja) {
-
-                    status.textContent =
-                        'Un rendez-vous existe déjà pour ce créneau.';
-
-                    return;
-
-                }
-
-
-                // Ajoute le nouveau
-                // rendez-vous
-                rendezVous.push({
-
-                    id: avocat.id,
-
-                    nom: avocat.nom,
-
-                    date: date.value,
-
-                    heure: heure,
-
-                    motif: motif
-
-                });
-
-
-                // Enregistre le rendez-vous
-                const enregistre =
-                    LB.ecrire(
-                        'rendezvous',
-                        rendezVous
-                    );
-
-
-                if (!enregistre) {
-
-                    status.textContent =
-                        'Une erreur est survenue lors de l’enregistrement du rendez-vous.';
-
-                    return;
-
-                }
-
-
-                // Message de confirmation
                 status.textContent =
-                    'Votre rendez-vous a été enregistré avec succès.';
+                    'Choisissez une date et une heure futures, et renseignez un motif.';
 
-
-                // Réinitialise
-                // le formulaire
-                event.target.reset();
-
-
-                event.target.hidden =
-                    true;
-
-
-                document
-                    .getElementById(
-                        'open-appointment'
-                    )
-                    .setAttribute(
-                        'aria-expanded',
-                        'false'
-                    );
+                return;
 
             }
-        );
+
+
+            // Récupère les rendez-vous
+            // déjà enregistrés
+
+            const rendezVous =
+                LB.lire(
+                    'rendezvous',
+                    []
+                );
+
+
+            // Vérifie si ce créneau
+            // existe déjà
+
+            const existeDeja =
+                rendezVous.some(
+                    rendezVous =>
+
+                        rendezVous.id ===
+                            avocat.id &&
+
+                        rendezVous.date ===
+                            date.value &&
+
+                        rendezVous.heure ===
+                            heure
+                );
+
+
+            if (existeDeja) {
+
+                status.textContent =
+                    'Un rendez-vous existe déjà pour ce créneau.';
+
+                return;
+
+            }
+
+
+            // Ajoute le nouveau rendez-vous
+
+            rendezVous.push({
+
+                id: avocat.id,
+
+                nom: avocat.nom,
+
+                date: date.value,
+
+                heure: heure,
+
+                motif: motif
+
+            });
+
+
+            // Enregistre le rendez-vous
+
+            const enregistre =
+                LB.ecrire(
+                    'rendezvous',
+                    rendezVous
+                );
+
+
+            if (!enregistre) {
+
+                status.textContent =
+                    'Une erreur est survenue lors de l’enregistrement du rendez-vous.';
+
+                return;
+
+            }
+
+
+            // Message de confirmation
+
+            status.textContent =
+                'Votre rendez-vous a été enregistré avec succès.';
+
+
+            // Réinitialise le formulaire
+
+            event.target.reset();
+
+
+            event.target.hidden =
+                true;
+
+
+            openAppointmentButton.setAttribute(
+                'aria-expanded',
+                'false'
+            );
+
+        }
+    );
 
 }

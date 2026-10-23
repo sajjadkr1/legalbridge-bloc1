@@ -5,44 +5,50 @@ Styles pour la carte d'un avocat
 
 
 /* ========================= */
-/* Carte avocat */
+/* CARTE AVOCAT */
 /* ========================= */
 
 .card {
     width: 300px;
     max-width: 100%;
 
-    background-color: white;
+    background-color: #ffffff;
 
-    border-radius: 20px;
+    border-radius: 16px;
 
     overflow: hidden;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.10);
 
-    padding-bottom: 20px;
+    padding-bottom: 24px;
 
     text-align: center;
 
+    border: 1px solid #eeeeee;
+
     transition:
-        transform 0.3s,
-        box-shadow 0.3s;
+        transform 0.25s,
+        box-shadow 0.25s;
 
     box-sizing: border-box;
 }
 
 
-/* Effet quand la souris passe */
+/* ========================= */
+/* SURVOL DE LA CARTE */
+/* ========================= */
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.16);
 }
 
 
 /* ========================= */
-/* Image avocat */
+/* IMAGE AVOCAT */
 /* ========================= */
 
 .avocat-image {
@@ -53,91 +59,141 @@ Styles pour la carte d'un avocat
     object-fit: cover;
 
     display: block;
+
+    background-color: #f2f2f2;
 }
 
 
 /* ========================= */
-/* Nom avocat */
+/* NOM AVOCAT */
 /* ========================= */
 
 .card h2 {
     color: #413c3c;
 
-    margin: 20px 15px 15px;
+    margin: 22px 18px 14px;
 
     font-size: 22px;
+    font-weight: 700;
+
+    line-height: 1.25;
 }
 
 
 /* ========================= */
-/* Informations */
+/* INFORMATIONS */
 /* ========================= */
 
 .card p {
-    color: #555555;
+    color: #5f5f5f;
 
-    font-size: 16px;
+    font-size: 15px;
 
     line-height: 1.5;
 
-    margin: 10px 15px;
+    margin: 9px 18px;
 }
 
 
 .card strong {
     color: #333333;
+
+    font-weight: 600;
 }
 
 
 /* ========================= */
-/* Bouton */
+/* LIEN PRINCIPAL */
 /* ========================= */
 
-.card button {
-    margin-top: 15px;
+.card > a {
+    display: inline-block;
 
-    padding: 12px 25px;
+    margin-top: 18px;
 
-    border: none;
-
-    border-radius: 25px;
+    padding: 11px 22px;
 
     background-color: #413c3c;
 
-    color: white;
+    color: #ffffff;
 
-    font-size: 15px;
+    border-radius: 7px;
 
-    cursor: pointer;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
 
     transition:
-        background-color 0.3s,
+        background-color 0.2s,
+        color 0.2s,
         transform 0.2s;
 }
 
 
-/* Hover bouton */
+.card > a:hover {
+    background-color: #d4af37;
 
-.card button:hover {
-    background-color: #8c6f3f;
+    color: #413c3c;
 
-    transform: translateY(-2px);
+    transform: translateY(-1px);
+
+    text-decoration: none;
 }
 
 
 /* ========================= */
-/* Navigation clavier */
+/* BOUTON ÉVENTUEL */
 /* ========================= */
 
+.card button {
+    margin-top: 18px;
+
+    padding: 11px 22px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #413c3c;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s,
+        transform 0.2s;
+}
+
+
+.card button:hover {
+    background-color: #d4af37;
+
+    color: #413c3c;
+
+    transform: translateY(-1px);
+}
+
+
+/* ========================= */
+/* NAVIGATION CLAVIER */
+/* ========================= */
+
+.card > a:focus-visible,
 .card button:focus-visible {
-    outline: 3px solid #0d2b45;
+    outline: 3px solid #d4af37;
 
     outline-offset: 3px;
 }
 
 
 /* ========================= */
-/* Tablette */
+/* TABLETTE */
 /* ========================= */
 
 @media (max-width: 1024px) {
@@ -150,13 +206,15 @@ Styles pour la carte d'un avocat
 
 
 /* ========================= */
-/* Téléphone */
+/* TÉLÉPHONE */
 /* ========================= */
 
 @media (max-width: 768px) {
 
     .card {
         width: 100%;
+
+        max-width: 420px;
     }
 
 
@@ -170,17 +228,20 @@ Styles pour la carte d'un avocat
     }
 
 
+    .card > a,
     .card button {
-        width: calc(100% - 30px);
+        width: calc(100% - 36px);
 
         min-height: 44px;
+
+        box-sizing: border-box;
     }
 
 }
 
 
 /* ========================= */
-/* Petit téléphone */
+/* PETIT TÉLÉPHONE */
 /* ========================= */
 
 @media (max-width: 480px) {
@@ -196,7 +257,7 @@ Styles pour la carte d'un avocat
 
 
     .card p {
-        font-size: 15px;
+        font-size: 14px;
     }
 
 }
