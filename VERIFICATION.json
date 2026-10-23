@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-05",
+  "pages": 6,
+  "avocats": 15,
+  "errors": [],
+  "browserChecks": [
+    "Home search opens",
+    "Immigration + Paris returns Jean Dupont and Nadia Karim",
+    "Details render",
+    "Demo login redirects back to selected lawyer",
+    "Future demo appointment stored and listed, no remote submission",
+    "Logout clears demo session",
+    "Contact displays not-sent message",
+    "Unknown city returns zero results"
+  ],
+  "limits": [
+    "No backend included",
+    "No real authentication, email sending or appointment booking",
+    "Missing justice.jpg replaced with gradient",
+    "Phone/address/description unavailable in supplied dataset",
+    "Exam rubric not provided"
+  ]
+}

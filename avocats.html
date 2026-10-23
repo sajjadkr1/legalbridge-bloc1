@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trouvez un avocat | LegalBridge</title>
+    <meta name="description" content="LegalBridge : trouver un avocat selon sa spécialité et sa ville.">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/avocats.css">
+    <link rel="stylesheet" href="css/carte.css">
+    <link rel="stylesheet" href="css/ajustements.css">
+    <script defer src="js/donnees.js"></script>
+    <script defer src="js/commun.js"></script>
+    <script defer src="js/avocats.js"></script>
+</head>
+
+<body><a class="skip-link" href="#contenu">Aller au contenu</a>
+    <nav class="navbar" aria-label="Navigation principale"><a class="logo" href="index.html"
+            aria-label="Retour à l'accueil"><img src="img/logo.png" alt="LegalBridge" width="60" height="60"></a>
+        <ul>
+            <li><a href="login.html" id="login-link">Connexion</a></li>
+            <li hidden id="appointments-item"><button type="button" id="appointments-toggle" aria-expanded="false"
+                    aria-controls="appointments-popup">Mes rendez-vous</button></li>
+            <li hidden id="logout-item"><button type="button" id="logout">Se déconnecter</button></li>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="avocats.html">Trouvez un avocat</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">À propos</a></li>
+        </ul>
+        <section class="rendez-vous-popup" id="appointments-popup" aria-label="Mes rendez-vous de démonstration" hidden>
+            <h2>Mes rendez-vous</h2><button class="close-popup" type="button" id="appointments-close">Fermer</button>
+            <div id="appointments-list"></div>
+        </section>
+    </nav>
+    <main id="contenu">
+        <section class="avocat-list">
+            <h1>Trouvez votre avocat</h1>
+            <div class="page-tools">
+                <form action="avocats.html" method="get">
+                    <div class="field"><label for="specialite">Spécialité</label><select id="specialite"
+                            name="specialite">
+                            <option value="">Toutes les spécialités</option value="immigration">Droit des étrangers
+                            </option>
+                            <option value="demande d'asile">Demande d'asile</option>
+                            <option value="logement">Logement</option>
+                            <option value="travail">Droit du travail</option>
+                            <option value="droit pénal">Droit pénal</option>
+                        </select></div>
+                    <div class="field"><label for="ville">Ville</label><input id="ville" name="ville"
+                            placeholder="Ex : Paris"></div><button type="submit">Rechercher</button><a
+                        href="avocats.html">Réinitialiser</a>
+                </form>
+                <p id="result-count" role="status"></p>
+            </div>
+            <div class="cards-container" id="resultats"></div>
+            <p class="empty-message" id="empty" hidden>Aucun avocat ne correspond à votre recherche.</p>
+        </section>
+    </main>
+    <footer class="footer">
+
+        <p class="footer-copyright">
+            &copy; 2026 LegalBridge. Tous droits réservés.
+        </p>
+
+
+        <div class="footer-links">
+
+            <p class="footer-title">
+                Liens utiles
+            </p>
+
+            <ul>
+
+                <li>
+                    <a href="contact.html">
+                        Contactez-nous
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        À propos
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </footer>
+</body>
+
+</html>

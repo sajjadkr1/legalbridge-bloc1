@@ -1,0 +1,400 @@
+<!doctype html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        Connexion | LegalBridge
+    </title>
+
+    <meta
+        name="description"
+        content="LegalBridge : trouver un avocat selon sa spécialité et sa ville."
+    >
+
+    <link
+        rel="icon"
+        href="favicon.ico"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/navbar.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/ajustements.css"
+    >
+
+
+    <script
+        defer
+        src="js/donnees.js"
+    ></script>
+
+    <script
+        defer
+        src="js/commun.js"
+    ></script>
+
+    <script
+        defer
+        src="js/login.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+
+    <a
+        class="skip-link"
+        href="#contenu"
+    >
+        Aller au contenu
+    </a>
+
+
+    <!-- ========================= -->
+    <!-- NAVIGATION -->
+    <!-- ========================= -->
+
+    <nav
+        class="navbar"
+        aria-label="Navigation principale"
+    >
+
+        <a
+            class="logo"
+            href="index.html"
+            aria-label="Retour à l'accueil"
+        >
+
+            <img
+                src="img/logo.png"
+                alt="LegalBridge"
+                width="60"
+                height="60"
+            >
+
+        </a>
+
+
+        <ul>
+
+            <li>
+
+                <a
+                    href="login.html"
+                    id="login-link"
+                >
+                    Connexion
+                </a>
+
+            </li>
+
+
+            <li
+                hidden
+                id="appointments-item"
+            >
+
+                <button
+                    type="button"
+                    id="appointments-toggle"
+                    aria-expanded="false"
+                    aria-controls="appointments-popup"
+                >
+                    Mes rendez-vous
+                </button>
+
+            </li>
+
+
+            <li
+                hidden
+                id="logout-item"
+            >
+
+                <button
+                    type="button"
+                    id="logout"
+                >
+                    Se déconnecter
+                </button>
+
+            </li>
+
+
+            <li>
+
+                <a href="index.html">
+                    Accueil
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="avocats.html">
+                    Trouvez un avocat
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="about.html">
+                    À propos
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <!-- Fenêtre rendez-vous -->
+
+        <section
+            class="rendez-vous-popup"
+            id="appointments-popup"
+            aria-label="Mes rendez-vous"
+            hidden
+        >
+
+            <h2>
+                Mes rendez-vous
+            </h2>
+
+
+            <button
+                class="close-popup"
+                type="button"
+                id="appointments-close"
+            >
+                Fermer
+            </button>
+
+
+            <div id="appointments-list"></div>
+
+        </section>
+
+    </nav>
+
+
+    <!-- ========================= -->
+    <!-- CONTENU -->
+    <!-- ========================= -->
+
+    <main id="contenu">
+
+
+        <div class="login-container">
+
+
+            <div class="login-card">
+
+
+                <h1>
+                    Connexion
+                </h1>
+
+
+                <p class="subtitle">
+                    Connectez-vous à votre compte
+                </p>
+
+
+                <form id="login-form">
+
+
+                    <!-- Email -->
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Adresse email
+                        </label>
+
+
+                        <input
+                            id="email"
+                            type="email"
+                            required
+                            placeholder="Ex : nom@email.com"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+
+                    <!-- Mot de passe -->
+
+                    <div class="input-group">
+
+                        <label for="password">
+                            Mot de passe
+                        </label>
+
+
+                        <input
+                            id="password"
+                            type="password"
+                            required
+                            minlength="8"
+                            placeholder="Votre mot de passe"
+                            autocomplete="current-password"
+                        >
+
+
+                        <span
+                            id="password-error"
+                            class="error-message"
+                            hidden
+                        >
+                            8 caractères minimum,
+                            avec minuscule,
+                            majuscule et chiffre.
+                        </span>
+
+                    </div>
+
+
+                    <!-- Bouton connexion -->
+
+                    <button
+                        type="submit"
+                    >
+                        Se connecter
+                    </button>
+
+
+                    <!-- Erreur connexion -->
+
+                    <p
+                        id="login-error"
+                        role="alert"
+                        hidden
+                    ></p>
+
+
+                    <!-- Lien inscription -->
+
+                    <div class="signup-link">
+
+                        <p>
+
+                            Pas encore de compte ?
+
+                            <a href="inscription.html">
+                                Créer un compte
+                            </a>
+
+                        </p>
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+
+
+        <p class="footer-copyright">
+            &copy; 2026 LegalBridge.
+            Tous droits réservés.
+        </p>
+
+
+        <div class="footer-links">
+
+
+            <p class="footer-title">
+                Liens utiles
+            </p>
+
+
+            <ul>
+
+
+                <li>
+
+                    <a href="contact.html">
+                        Contactez-nous
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="about.html">
+                        À propos
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+</html>

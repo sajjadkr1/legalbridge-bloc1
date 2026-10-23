@@ -1,0 +1,409 @@
+<!doctype html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        Inscription | LegalBridge
+    </title>
+
+    <meta
+        name="description"
+        content="Créez votre compte LegalBridge."
+    >
+
+    <link
+        rel="icon"
+        href="favicon.ico"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/navbar.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/ajustements.css"
+    >
+
+
+    <script
+        defer
+        src="js/donnees.js"
+    ></script>
+
+    <script
+        defer
+        src="js/commun.js"
+    ></script>
+
+    <script
+        defer
+        src="js/inscription.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+
+    <a
+        class="skip-link"
+        href="#contenu"
+    >
+        Aller au contenu
+    </a>
+
+
+    <!-- ========================= -->
+    <!-- NAVIGATION -->
+    <!-- ========================= -->
+
+    <nav
+        class="navbar"
+        aria-label="Navigation principale"
+    >
+
+        <a
+            class="logo"
+            href="index.html"
+            aria-label="Retour à l'accueil"
+        >
+
+            <img
+                src="img/logo.png"
+                alt="LegalBridge"
+                width="60"
+                height="60"
+            >
+
+        </a>
+
+
+        <ul>
+
+            <li>
+                <a href="login.html">
+                    Connexion
+                </a>
+            </li>
+
+
+            <li>
+                <a href="index.html">
+                    Accueil
+                </a>
+            </li>
+
+
+            <li>
+                <a href="avocats.html">
+                    Trouvez un avocat
+                </a>
+            </li>
+
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+
+            <li>
+                <a href="about.html">
+                    À propos
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ========================= -->
+    <!-- CONTENU -->
+    <!-- ========================= -->
+
+    <main id="contenu">
+
+
+        <div class="login-container">
+
+
+            <div class="login-card">
+
+
+                <h1>
+                    Créer un compte
+                </h1>
+
+
+                <p class="subtitle">
+                    Créez votre compte LegalBridge
+                </p>
+
+
+                <form id="inscription-form">
+
+
+                    <!-- Nom -->
+
+                    <div class="input-group">
+
+                        <label for="nom">
+                            Nom
+                        </label>
+
+                        <input
+                            id="nom"
+                            type="text"
+                            required
+                            placeholder="Votre nom"
+                            autocomplete="family-name"
+                        >
+
+                    </div>
+
+
+                    <!-- Prénom -->
+
+                    <div class="input-group">
+
+                        <label for="prenom">
+                            Prénom
+                        </label>
+
+                        <input
+                            id="prenom"
+                            type="text"
+                            required
+                            placeholder="Votre prénom"
+                            autocomplete="given-name"
+                        >
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Adresse email
+                        </label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            required
+                            placeholder="Ex : nom@email.com"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+
+                    <!-- Mot de passe -->
+
+                    <div class="input-group">
+
+                        <label for="password">
+                            Mot de passe
+                        </label>
+
+
+                        <div class="password-wrapper">
+
+                            <input
+                                id="password"
+                                type="password"
+                                required
+                                minlength="8"
+                                placeholder="Créez votre mot de passe"
+                                autocomplete="new-password"
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="toggle-password"
+                                aria-label="Afficher le mot de passe"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+
+                        <span
+                            id="password-error"
+                            class="error-message"
+                            hidden
+                        >
+                            8 caractères minimum,
+                            avec minuscule,
+                            majuscule et chiffre.
+                        </span>
+
+                    </div>
+
+
+                    <!-- Confirmation mot de passe -->
+
+                    <div class="input-group">
+
+                        <label for="confirm-password">
+                            Confirmer le mot de passe
+                        </label>
+
+
+                        <div class="password-wrapper">
+
+                            <input
+                                id="confirm-password"
+                                type="password"
+                                required
+                                minlength="8"
+                                placeholder="Confirmez votre mot de passe"
+                                autocomplete="new-password"
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="toggle-confirm-password"
+                                aria-label="Afficher la confirmation du mot de passe"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+
+                        <span
+                            id="confirm-error"
+                            class="error-message"
+                            hidden
+                        >
+                            Les mots de passe
+                            ne correspondent pas.
+                        </span>
+
+                    </div>
+
+
+                    <!-- Bouton inscription -->
+
+                    <button
+                        type="submit"
+                    >
+                        Créer mon compte
+                    </button>
+
+
+                    <!-- Message -->
+
+                    <p
+                        id="inscription-message"
+                        role="alert"
+                        hidden
+                    ></p>
+
+
+                    <!-- Lien connexion -->
+
+                    <p class="auth-link">
+
+                        Déjà un compte ?
+
+                        <a href="login.html">
+                            Se connecter
+                        </a>
+
+                    </p>
+
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+
+        <p class="footer-copyright">
+            &copy; 2026 LegalBridge.
+            Tous droits réservés.
+        </p>
+
+
+        <div class="footer-links">
+
+            <p class="footer-title">
+                Liens utiles
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <a href="contact.html">
+                        Contactez-nous
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="about.html">
+                        À propos
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
