@@ -1,3 +1,5 @@
+@import "@fontsource/opendyslexic/400.css";
+
 /* ========================= */
 /* STYLES GÉNÉRAUX */
 /* ========================= */
@@ -13,8 +15,9 @@ body {
     min-height: 100vh;
 
     font-family:
-        Arial,
-        sans-serif;
+    'OpenDyslexic',
+    Arial,
+    sans-serif;
 
     background-color: #f2f2f2;
 
