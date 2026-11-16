@@ -22,7 +22,7 @@ const problemeSelect =
         'probleme'
     );
 
-
+if (openSearchButton && searchSection && problemeSelect) {
 openSearchButton.addEventListener(
     'click',
     () => {
@@ -56,3 +56,4 @@ openSearchButton.addEventListener(
 
     }
 );
+}

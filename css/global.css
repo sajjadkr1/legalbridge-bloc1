@@ -1,5 +1,14 @@
-@import "@fontsource/opendyslexic/400.css";
+@font-face {
+    font-family: 'OpenDyslexic';
 
+    src:
+        url('../fonts/opendyslexic-latin-400-normal.woff2') format('woff2'),
+        url('../fonts/opendyslexic-latin-400-normal.woff') format('woff');
+
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 /* ========================= */
 /* STYLES GÉNÉRAUX */
 /* ========================= */
@@ -8,22 +17,13 @@ html {
     scroll-behavior: smooth;
 }
 
-
 body {
     margin: 0;
-
     min-height: 100vh;
-
-    font-family:
-    'OpenDyslexic',
-    Arial,
-    sans-serif;
-
+    font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-
     color: #333333;
 }
-
 
 /* ========================= */
 /* ÉLÉMENTS GÉNÉRAUX */
@@ -31,15 +31,12 @@ body {
 
 img {
     max-width: 100%;
-
     height: auto;
 }
-
 
 a {
     color: inherit;
 }
-
 
 button,
 input,
@@ -47,7 +44,6 @@ select,
 textarea {
     font: inherit;
 }
-
 
 /* ========================= */
 /* FORMULAIRES */
@@ -59,11 +55,9 @@ textarea {
     max-width: 100%;
 }
 
-
 textarea {
     resize: vertical;
 }
-
 
 /* ========================= */
 /* ACCESSIBILITÉ */
@@ -71,10 +65,14 @@ textarea {
 
 :focus-visible {
     outline: 3px solid #b9975b;
-
     outline-offset: 3px;
 }
 
+/* Police OpenDyslexic optionnelle */
+
+body.police-dyslexie {
+    font-family: 'OpenDyslexic', Arial, sans-serif;
+}
 
 /* ========================= */
 /* TEXTE */
@@ -87,13 +85,11 @@ p {
     overflow-wrap: break-word;
 }
 
-
 /* ========================= */
 /* SÉLECTION DE TEXTE */
 /* ========================= */
 
 ::selection {
     background-color: #b9975b;
-
     color: #ffffff;
 }

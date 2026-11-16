@@ -1,4 +1,3 @@
-
 <!doctype html>
 
 <html lang="fr">
@@ -7,19 +6,13 @@
 
     <meta charset="utf-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>
         Accueil | LegalBridge
     </title>
 
-    <meta
-        name="description"
-        content="LegalBridge : trouvez un avocat selon sa spécialité et sa ville."
-    >
+    <meta name="description" content="LegalBridge : trouvez un avocat selon sa spécialité et sa ville.">
 
     <script type="application/ld+json">
     {
@@ -31,36 +24,17 @@
     }
     </script>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="favicon.png"
-    >
+    <link rel="icon" type="image/png" href="favicon.png">
 
-    <link
-        rel="stylesheet"
-        href="css/global.css"
-    >
+    <link rel="stylesheet" href="css/global.css">
 
-    <link
-        rel="stylesheet"
-        href="css/navbar.css"
-    >
+    <link rel="stylesheet" href="css/navbar.css">
 
-    <link
-        rel="stylesheet"
-        href="css/footer.css"
-    >
+    <link rel="stylesheet" href="css/footer.css">
 
-    <link
-        rel="stylesheet"
-        href="css/accueil.css"
-    >
+    <link rel="stylesheet" href="css/accueil.css">
 
-    <link
-        rel="stylesheet"
-        href="css/ajustements.css"
-    >
+    <link rel="stylesheet" href="css/ajustements.css">
 
 </head>
 
@@ -68,33 +42,18 @@
 <body>
 
 
-    <a
-        class="skip-link"
-        href="#contenu"
-    >
+    <a class="skip-link" href="#contenu">
         Aller au contenu
     </a>
 
 
     <!-- NAVIGATION -->
 
-    <nav
-        class="navbar"
-        aria-label="Navigation principale"
-    >
+    <nav class="navbar" aria-label="Navigation principale">
 
-        <a
-            class="logo"
-            href="index.html"
-            aria-label="Retour à l'accueil"
-        >
+        <a class="logo" href="index.html" aria-label="Retour à l'accueil">
 
-            <img
-                src="img/logo.png"
-                alt="LegalBridge"
-                width="60"
-                height="60"
-            >
+            <img src="img/logo.png" alt="LegalBridge" width="60" height="60">
 
         </a>
 
@@ -102,41 +61,24 @@
         <ul>
 
             <li>
-                <a
-                    href="login.html"
-                    id="login-link"
-                >
+                <a href="login.html" id="login-link">
                     Connexion
                 </a>
             </li>
 
 
-            <li
-                id="appointments-item"
-                hidden
-            >
+            <li id="appointments-item" hidden>
 
-                <button
-                    type="button"
-                    id="appointments-toggle"
-                    aria-expanded="false"
-                    aria-controls="appointments-popup"
-                >
+                <button type="button" id="appointments-toggle" aria-expanded="false" aria-controls="appointments-popup">
                     Mes rendez-vous
                 </button>
 
             </li>
 
 
-            <li
-                id="logout-item"
-                hidden
-            >
+            <li id="logout-item" hidden>
 
-                <button
-                    type="button"
-                    id="logout"
-                >
+                <button type="button" id="logout">
                     Se déconnecter
                 </button>
 
@@ -144,10 +86,7 @@
 
 
             <li>
-                <a
-                    href="index.html"
-                    aria-current="page"
-                >
+                <a href="index.html" aria-current="page">
                     Accueil
                 </a>
             </li>
@@ -173,28 +112,33 @@
                 </a>
             </li>
 
+            <li class="accessibility-item">
+
+    <button
+        type="button"
+        id="police-toggle"
+        aria-label="Paramètres d'accessibilité"
+        title="Paramètres d'accessibilité"
+        aria-pressed="false"
+    >
+        <span aria-hidden="true">Aa</span>
+    </button>
+
+</li>
+
         </ul>
 
 
         <!-- RENDEZ-VOUS -->
 
-        <section
-            class="rendez-vous-popup"
-            id="appointments-popup"
-            aria-label="Mes rendez-vous"
-            hidden
-        >
+        <section class="rendez-vous-popup" id="appointments-popup" aria-label="Mes rendez-vous" hidden>
 
             <h2>
                 Mes rendez-vous
             </h2>
 
 
-            <button
-                class="close-popup"
-                type="button"
-                id="appointments-close"
-            >
+            <button class="close-popup" type="button" id="appointments-close">
                 Fermer
             </button>
 
@@ -208,10 +152,7 @@
 
     <!-- CONTENU PRINCIPAL -->
 
-    <main
-        id="contenu"
-        tabindex="-1"
-    >
+    <main id="contenu" tabindex="-1">
 
 
         <!-- HERO -->
@@ -231,13 +172,7 @@
                 </p>
 
 
-                <button
-                    type="button"
-                    class="hero-btn"
-                    id="open-search"
-                    aria-expanded="false"
-                    aria-controls="search"
-                >
+                <button type="button" class="hero-btn" id="open-search" aria-expanded="false" aria-controls="search">
                     Commencer la recherche
                 </button>
 
@@ -248,18 +183,9 @@
 
         <!-- RECHERCHE -->
 
-        <section
-            id="search"
-            class="search-container"
-            aria-labelledby="search-title"
-            hidden
-        >
+        <section id="search" class="search-container" aria-labelledby="search-title" hidden>
 
-            <form
-                class="search-box"
-                action="avocats.html"
-                method="get"
-            >
+            <form class="search-box" action="avocats.html" method="get">
 
                 <h2 id="search-title">
                     Trouvez votre avocat
@@ -278,10 +204,7 @@
                         </label>
 
 
-                        <select
-                            id="probleme"
-                            name="specialite"
-                        >
+                        <select id="probleme" name="specialite">
 
                             <option value="">
                                 Choisir un problème
@@ -326,12 +249,7 @@
                         </label>
 
 
-                        <input
-                            id="ville"
-                            name="ville"
-                            type="text"
-                            placeholder="Ex : Paris"
-                        >
+                        <input id="ville" name="ville" type="text" placeholder="Ex : Paris">
 
                     </div>
 
@@ -340,11 +258,7 @@
 
                 <!-- Bouton de recherche -->
 
-                <button
-                    type="submit"
-                    class="search-btn"
-                    id="search-button"
-                >
+                <button type="submit" class="search-btn" id="search-button">
                     Rechercher un avocat
                 </button>
 

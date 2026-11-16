@@ -334,6 +334,39 @@ if (!avocat) {
 
     ].join('-');
 
+        // =========================
+    // DONNÉES STRUCTURÉES
+    // =========================
+
+    const donneesStructurees = {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": avocat.nom + " | LegalBridge",
+        "mainEntity": {
+            "@type": "Person",
+            "name": avocat.nom,
+            "jobTitle": "Avocat",
+            "knowsAbout": specialiteAffichee,
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": avocat.ville,
+                "addressCountry": "FR"
+            },
+            "knowsLanguage": avocat.langues
+        },
+        "inLanguage": "fr-FR"
+    };
+
+    const scriptJsonLd =
+        document.createElement('script');
+
+    scriptJsonLd.type =
+        'application/ld+json';
+
+    scriptJsonLd.textContent =
+        JSON.stringify(donneesStructurees);
+
+    document.head.appendChild(scriptJsonLd);
 
     // =========================
     // OUVRIR LE FORMULAIRE

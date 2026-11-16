@@ -1,6 +1,7 @@
-/* ==========================
-   BARRE DE NAVIGATION
-========================== */
+
+/* ========================================
+   LEGALBRIDGE - BARRE DE NAVIGATION
+======================================== */
 
 .navbar {
     background-color: #413c3c;
@@ -13,17 +14,38 @@
     padding: 14px 32px;
 
     position: relative;
-
     box-sizing: border-box;
 
-    box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
+
+    z-index: 100;
 }
 
 
-/* ==========================
+/* ========================================
+   LOGO
+======================================== */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.logo img {
+    width: 54px;
+    height: 54px;
+
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ========================================
    LISTE DU MENU
-========================== */
+======================================== */
 
 .navbar ul {
     display: flex;
@@ -38,15 +60,14 @@
 }
 
 
-/* ==========================
+/* ========================================
    LIENS DU MENU
-========================== */
+======================================== */
 
 .navbar a {
     position: relative;
 
     color: #ffffff;
-
     text-decoration: none;
 
     font-size: 15px;
@@ -56,28 +77,22 @@
 
     cursor: pointer;
 
-    transition:
-        color 0.2s;
+    transition: color 0.2s ease;
 }
 
 
-/* ==========================
-   SURVOL DES LIENS
-========================== */
+/* SURVOL DES LIENS */
 
 .navbar a:hover {
     color: #d4af37;
 }
 
 
-/* ==========================
-   LIEN ACTIF
-========================== */
+/* LIEN ACTIF */
 
 .navbar a[aria-current="page"] {
     color: #d4af37;
 }
-
 
 .navbar a[aria-current="page"]::after {
     content: "";
@@ -96,13 +111,12 @@
 }
 
 
-/* ==========================
+/* ========================================
    BOUTONS DE NAVIGATION
-========================== */
+======================================== */
 
 .navbar button {
     background-color: transparent;
-
     color: #ffffff;
 
     border: none;
@@ -110,64 +124,106 @@
     padding: 8px 2px;
 
     font: inherit;
-
     font-size: 15px;
     font-weight: 500;
 
     cursor: pointer;
 
-    transition:
-        color 0.2s;
+    transition: color 0.2s ease;
 }
-
 
 .navbar button:hover {
     color: #d4af37;
 }
 
 
-/* ==========================
+/* ========================================
+   ACCESSIBILITÉ - BOUTON OPENDYSLEXIC
+======================================== */
+
+.navbar .accessibility-item {
+    display: flex;
+    align-items: center;
+}
+
+.navbar #police-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    color: #e2c46b;
+
+    background-color: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* ICÔNE Aa */
+
+.navbar #police-toggle span {
+    font-size: 17px;
+    font-weight: 700;
+
+    letter-spacing: -1px;
+}
+
+
+/* SURVOL */
+
+.navbar #police-toggle:hover {
+    color: #413c3c;
+
+    background-color: #d4af37;
+    border-color: #d4af37;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+}
+
+
+/* POLICE ACTIVÉE */
+
+.navbar #police-toggle[aria-pressed="true"] {
+    color: #413c3c;
+
+    background-color: #d4af37;
+    border-color: #d4af37;
+}
+
+
+/* ========================================
    NAVIGATION AU CLAVIER
-========================== */
+======================================== */
 
 .navbar a:focus-visible,
 .navbar button:focus-visible {
     outline: 3px solid #d4af37;
-
     outline-offset: 4px;
 
     border-radius: 4px;
 }
 
 
-/* ==========================
-   LOGO
-========================== */
-
-.logo {
-    display: inline-flex;
-
-    align-items: center;
-
-    flex-shrink: 0;
-
-    padding: 0;
-}
-
-
-.logo img {
-    width: 54px;
-    height: 54px;
-
-    object-fit: contain;
-
-    display: block;
-}
-
-
-/* ==========================
-   RENDEZ-VOUS
-========================== */
+/* ========================================
+   FENÊTRE MES RENDEZ-VOUS
+======================================== */
 
 .rendez-vous-popup {
     position: absolute;
@@ -187,8 +243,7 @@
 
     border-radius: 12px;
 
-    box-shadow:
-        0 14px 35px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
 
     padding: 20px;
 
@@ -198,9 +253,7 @@
 }
 
 
-/* ==========================
-   TITRE RENDEZ-VOUS
-========================== */
+/* TITRE RENDEZ-VOUS */
 
 .rendez-vous-popup h2 {
     margin-top: 0;
@@ -212,70 +265,56 @@
 }
 
 
-/* ==========================
-   BOUTON FERMER
-========================== */
+/* BOUTON FERMER */
 
 .rendez-vous-popup .close-popup {
     width: auto;
 
     margin: 0 0 15px;
-
     padding: 8px 12px;
 
     background-color: transparent;
-
     color: #d4af37;
 
     border: 1px solid #d4af37;
-
     border-radius: 6px;
 
     font-size: 14px;
 }
 
-
 .rendez-vous-popup .close-popup:hover {
     background-color: #d4af37;
-
     color: #413c3c;
 }
 
 
-/* ==========================
-   ÉLÉMENTS RENDEZ-VOUS
-========================== */
+/* ÉLÉMENTS RENDEZ-VOUS */
 
 .rendez-vous-item {
     padding: 14px 0;
 
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
-
 
 .rendez-vous-item:last-child {
     border-bottom: none;
 }
 
-
 .rendez-vous-item p {
     margin: 5px 0;
 
     line-height: 1.5;
-
     font-size: 14px;
 }
-
 
 .rendez-vous-item strong {
     color: #d4af37;
 }
 
 
-/* ==========================
+/* ========================================
    TABLETTE
-========================== */
+======================================== */
 
 @media (max-width: 1024px) {
 
@@ -283,17 +322,14 @@
         padding: 13px 22px;
     }
 
-
     .navbar ul {
         gap: 15px;
     }
-
 
     .navbar a,
     .navbar button {
         font-size: 14px;
     }
-
 
     .logo img {
         width: 50px;
@@ -303,15 +339,14 @@
 }
 
 
-/* ==========================
+/* ========================================
    TÉLÉPHONE
-========================== */
+======================================== */
 
 @media (max-width: 768px) {
 
     .navbar {
         flex-direction: column;
-
         align-items: center;
 
         gap: 12px;
@@ -319,31 +354,31 @@
         padding: 14px 15px;
     }
 
-
     .navbar ul {
         width: 100%;
 
         justify-content: center;
-
         flex-wrap: wrap;
 
         gap: 8px 14px;
     }
 
-
     .navbar a,
     .navbar button {
         font-size: 14px;
-
         padding: 6px 2px;
     }
-
 
     .logo img {
         width: 48px;
         height: 48px;
     }
 
+    .navbar #police-toggle {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+    }
 
     .rendez-vous-popup {
         top: calc(100% + 8px);
@@ -352,7 +387,6 @@
         right: 12px;
 
         width: auto;
-
         max-height: 350px;
 
         padding: 18px;
@@ -361,9 +395,9 @@
 }
 
 
-/* ==========================
+/* ========================================
    PETIT TÉLÉPHONE
-========================== */
+======================================== */
 
 @media (max-width: 480px) {
 
@@ -371,29 +405,48 @@
         padding: 12px 10px;
     }
 
-
     .navbar ul {
         gap: 6px 12px;
     }
-
 
     .navbar a,
     .navbar button {
         font-size: 13px;
     }
 
-
     .logo img {
         width: 44px;
         height: 44px;
     }
 
+    .navbar #police-toggle {
+        width: 38px;
+        height: 38px;
+    }
 
     .rendez-vous-popup {
         left: 8px;
         right: 8px;
 
         padding: 15px;
+    }
+
+}
+
+
+/* ========================================
+   RESPECT DES ANIMATIONS REDUITES
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .navbar a,
+    .navbar button {
+        transition: none;
+    }
+
+    .navbar #police-toggle:hover {
+        transform: none;
     }
 
 }

@@ -9,8 +9,44 @@ const form =
     document.getElementById(
         'login-form'
     );
+const email = document.getElementById('email');
 
+const password = document.getElementById('password');
 
+const emailError = document.getElementById('email-error');
+
+const passwordError = document.getElementById('password-error');
+
+function verifierEmail() {
+    const emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const valide = emailPattern.test(email.value);
+
+    emailError.hidden = valide;
+
+    email.setAttribute('aria-invalid', String(!valide)
+);
+return valide;
+}
+email.addEventListener('input', verifierEmail);
+
+function verifierPassword() {
+    const passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    const valide = passwordPattern.test(password.value);
+
+    passwordError.hidden = valide;
+
+    password.setAttribute(
+        'aria-invalid', String(!valide)
+    );
+    return valide;
+}
+password.addEventListener(
+    'input',
+    verifierPassword
+);
 form.addEventListener(
     'submit',
     event => {
@@ -23,16 +59,6 @@ form.addEventListener(
         // RÉCUPÉRATION DES ÉLÉMENTS
         // =========================
 
-        const password =
-            document.getElementById(
-                'password'
-            );
-
-
-        const erreur =
-            document.getElementById(
-                'password-error'
-            );
 
 
         const status =
@@ -45,32 +71,15 @@ form.addEventListener(
         // VALIDATION DU MOT DE PASSE
         // =========================
 
-        const passwordPattern =
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-
-
-        const valide =
-            passwordPattern.test(
-                password.value
-            );
-
-
-        erreur.hidden =
-            valide;
-
-
-        password.setAttribute(
-            'aria-invalid',
-            String(!valide)
-        );
-
-
-        if (!valide) {
-
+        const emailValide = verifierEmail();
+        const passwordValide = verifierPassword();
+        if (!emailValide || !passwordValide) {
+         if (!emailValide) {
+            email.focus();
+         } else {
             password.focus();
-
-            return;
-
+         }
+         return;
         }
 
 

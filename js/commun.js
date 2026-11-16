@@ -90,6 +90,90 @@ window.LegalBridge = {
 const LB =
     window.LegalBridge;
 
+// =========================
+// POLICE ACCESSIBLE
+// =========================
+
+const boutonPolice =
+    document.getElementById('police-toggle');
+
+
+// Lire le choix enregistré
+
+let policeActivee = false;
+
+try {
+
+    policeActivee =
+        localStorage.getItem('legalbridge-police-dyslexie') === 'active';
+
+} catch {
+
+    policeActivee = false;
+
+}
+
+
+// Appliquer la police
+
+document.body.classList.toggle(
+    'police-dyslexie',
+    policeActivee
+);
+
+
+// Mettre à jour le bouton
+
+function mettreAJourBoutonPolice() {
+
+    if (!boutonPolice) {
+        return;
+    }
+
+    boutonPolice.setAttribute(
+        'aria-pressed',
+        String(policeActivee)
+    );
+
+    boutonPolice.textContent = 'Aa';
+
+}
+
+
+// Activer ou désactiver la police
+
+if (boutonPolice) {
+
+    boutonPolice.addEventListener('click', () => {
+
+        policeActivee = !policeActivee;
+
+        document.body.classList.toggle(
+            'police-dyslexie',
+            policeActivee
+        );
+
+        try {
+
+            localStorage.setItem(
+                'legalbridge-police-dyslexie',
+                policeActivee ? 'active' : 'inactive'
+            );
+
+        } catch {
+
+            // Le site continue même si le stockage est indisponible
+
+        }
+
+        mettreAJourBoutonPolice();
+
+    });
+
+}
+
+
+mettreAJourBoutonPolice();
 
 // =========================
 // NAVIGATION
