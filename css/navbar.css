@@ -8,15 +8,16 @@
     color: #ffffff;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
-    padding: 14px 32px;
+    gap: 35px;
+
+    min-height: 72px;
+
+    padding: 12px 32px;
 
     position: relative;
     box-sizing: border-box;
-
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
 
     z-index: 100;
 }
@@ -26,17 +27,17 @@
    LOGO
 ======================================== */
 
-.logo {
-    display: inline-flex;
+.navbar .logo {
+    display: flex;
     align-items: center;
 
     flex-shrink: 0;
     padding: 0;
 }
 
-.logo img {
-    width: 54px;
-    height: 54px;
+.navbar .logo img {
+    width: 52px;
+    height: 52px;
 
     object-fit: contain;
     display: block;
@@ -51,12 +52,14 @@
     display: flex;
     align-items: center;
 
-    gap: 22px;
+    gap: 28px;
 
     list-style: none;
 
     margin: 0;
     padding: 0;
+
+    flex: 1;
 }
 
 
@@ -64,44 +67,46 @@
    LIENS DU MENU
 ======================================== */
 
-.navbar a {
+.navbar ul a {
     position: relative;
 
     color: #ffffff;
     text-decoration: none;
 
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
 
-    padding: 8px 2px;
+    padding: 10px 0;
 
     cursor: pointer;
+
+    white-space: nowrap;
 
     transition: color 0.2s ease;
 }
 
 
-/* SURVOL DES LIENS */
-
-.navbar a:hover {
+.navbar ul a:hover {
     color: #d4af37;
 }
 
 
-/* LIEN ACTIF */
+/* ========================================
+   PAGE ACTIVE
+======================================== */
 
-.navbar a[aria-current="page"] {
+.navbar ul a[aria-current="page"] {
     color: #d4af37;
 }
 
-.navbar a[aria-current="page"]::after {
+.navbar ul a[aria-current="page"]::after {
     content: "";
 
     position: absolute;
 
     left: 0;
     right: 0;
-    bottom: 1px;
+    bottom: 2px;
 
     height: 2px;
 
@@ -115,35 +120,101 @@
    BOUTONS DE NAVIGATION
 ======================================== */
 
-.navbar button {
-    background-color: transparent;
+.navbar ul > li > button:not(#police-toggle) {
+    display: flex;
+    align-items: center;
+
+    background: transparent;
     color: #ffffff;
 
     border: none;
 
-    padding: 8px 2px;
+    padding: 10px 0;
 
-    font: inherit;
-    font-size: 15px;
+    font-family: inherit;
+    font-size: 16px;
     font-weight: 500;
+
+    white-space: nowrap;
 
     cursor: pointer;
 
     transition: color 0.2s ease;
 }
 
-.navbar button:hover {
+
+.navbar ul > li > button:not(#police-toggle):hover {
     color: #d4af37;
 }
 
 
 /* ========================================
-   ACCESSIBILITÉ - BOUTON OPENDYSLEXIC
+   CONNEXION
+======================================== */
+
+#login-link {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 10px 16px !important;
+
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+
+    font-size: 15px !important;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#login-link:hover {
+    background-color: #d4af37;
+    color: #2f2b2b;
+
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   DÉCONNEXION
+======================================== */
+
+#logout {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 10px 16px !important;
+
+    border: 1px solid #d4af37 !important;
+    border-radius: 8px;
+
+    font-size: 15px !important;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#logout:hover {
+    background-color: #d4af37;
+    color: #2f2b2b !important;
+
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ - OPENDYSLEXIC
 ======================================== */
 
 .navbar .accessibility-item {
     display: flex;
     align-items: center;
+
+    margin-left: auto;
 }
 
 .navbar #police-toggle {
@@ -173,18 +244,12 @@
         box-shadow 0.25s ease;
 }
 
-
-/* ICÔNE Aa */
-
 .navbar #police-toggle span {
     font-size: 17px;
     font-weight: 700;
 
     letter-spacing: -1px;
 }
-
-
-/* SURVOL */
 
 .navbar #police-toggle:hover {
     color: #413c3c;
@@ -196,9 +261,6 @@
 
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
 }
-
-
-/* POLICE ACTIVÉE */
 
 .navbar #police-toggle[aria-pressed="true"] {
     color: #413c3c;
@@ -214,10 +276,10 @@
 
 .navbar a:focus-visible,
 .navbar button:focus-visible {
-    outline: 3px solid #d4af37;
+    outline: 2px solid #d4af37;
     outline-offset: 4px;
 
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 
@@ -225,27 +287,26 @@
    FENÊTRE MES RENDEZ-VOUS
 ======================================== */
 
-.rendez-vous-popup {
+.navbar .rendez-vous-popup {
     position: absolute;
 
-    top: calc(100% + 8px);
-    right: 24px;
+    top: calc(100% + 10px);
+    right: 32px;
 
     width: 360px;
     max-height: 420px;
 
     overflow-y: auto;
 
-    background-color: #262323;
+    background-color: #1f1f1f;
     color: #ffffff;
 
-    border: 1px solid rgba(212, 175, 55, 0.30);
-
+    border: 1px solid #353535;
     border-radius: 12px;
 
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
 
-    padding: 20px;
+    padding: 18px;
 
     z-index: 1000;
 
@@ -253,19 +314,17 @@
 }
 
 
-/* TITRE RENDEZ-VOUS */
-
 .rendez-vous-popup h2 {
     margin-top: 0;
-    margin-bottom: 16px;
-
-    color: #ffffff;
+    margin-bottom: 15px;
 
     font-size: 20px;
 }
 
 
-/* BOUTON FERMER */
+/* ========================================
+   BOUTON FERMER
+======================================== */
 
 .rendez-vous-popup .close-popup {
     width: auto;
@@ -288,12 +347,14 @@
 }
 
 
-/* ÉLÉMENTS RENDEZ-VOUS */
+/* ========================================
+   ÉLÉMENTS RENDEZ-VOUS
+======================================== */
 
 .rendez-vous-item {
-    padding: 14px 0;
+    padding: 14px 4px;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid #3a3a3a;
 }
 
 .rendez-vous-item:last-child {
@@ -301,57 +362,64 @@
 }
 
 .rendez-vous-item p {
-    margin: 5px 0;
+    margin: 7px 0;
 
-    line-height: 1.5;
     font-size: 14px;
-}
-
-.rendez-vous-item strong {
-    color: #d4af37;
+    line-height: 1.5;
 }
 
 
 /* ========================================
-   TABLETTE
+   RESPONSIVE - TABLETTE
 ======================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
 
     .navbar {
-        padding: 13px 22px;
+        gap: 22px;
+        padding: 12px 20px;
     }
 
     .navbar ul {
-        gap: 15px;
+        gap: 18px;
     }
 
-    .navbar a,
-    .navbar button {
+    .navbar ul a,
+    .navbar ul > li > button:not(#police-toggle) {
         font-size: 14px;
     }
 
-    .logo img {
-        width: 50px;
-        height: 50px;
+    #login-link,
+    #logout {
+        padding: 9px 12px !important;
+        font-size: 14px !important;
     }
 
 }
 
 
 /* ========================================
-   TÉLÉPHONE
+   RESPONSIVE - TÉLÉPHONE
 ======================================== */
 
 @media (max-width: 768px) {
 
     .navbar {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
 
-        gap: 12px;
+        gap: 14px;
 
-        padding: 14px 15px;
+        padding: 14px 18px;
+    }
+
+    .navbar .logo {
+        justify-content: center;
+    }
+
+    .navbar .logo img {
+        width: 48px;
+        height: 48px;
     }
 
     .navbar ul {
@@ -360,36 +428,26 @@
         justify-content: center;
         flex-wrap: wrap;
 
-        gap: 8px 14px;
+        gap: 10px 18px;
     }
 
-    .navbar a,
-    .navbar button {
+    .navbar ul a,
+    .navbar ul > li > button:not(#police-toggle) {
         font-size: 14px;
-        padding: 6px 2px;
     }
 
-    .logo img {
-        width: 48px;
-        height: 48px;
+    .navbar .accessibility-item {
+        margin-left: 0;
     }
 
-    .navbar #police-toggle {
-        width: 40px;
-        height: 40px;
-        padding: 0;
-    }
-
-    .rendez-vous-popup {
-        top: calc(100% + 8px);
+    .navbar .rendez-vous-popup {
+        top: 100%;
 
         left: 12px;
         right: 12px;
 
         width: auto;
         max-height: 350px;
-
-        padding: 18px;
     }
 
 }
@@ -406,15 +464,15 @@
     }
 
     .navbar ul {
-        gap: 6px 12px;
+        gap: 8px 12px;
     }
 
-    .navbar a,
-    .navbar button {
+    .navbar ul a,
+    .navbar ul > li > button:not(#police-toggle) {
         font-size: 13px;
     }
 
-    .logo img {
+    .navbar .logo img {
         width: 44px;
         height: 44px;
     }
@@ -424,7 +482,7 @@
         height: 38px;
     }
 
-    .rendez-vous-popup {
+    .navbar .rendez-vous-popup {
         left: 8px;
         right: 8px;
 
@@ -435,7 +493,7 @@
 
 
 /* ========================================
-   RESPECT DES ANIMATIONS REDUITES
+   ANIMATIONS RÉDUITES
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
